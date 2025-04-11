@@ -1,49 +1,40 @@
-import { useEffect } from "react";
-import Logo from "../images/Logo.jpg";
-import { IoCartOutline } from "react-icons/io5";
 import { IoPersonOutline } from "react-icons/io5";
-import { Link } from "react-router-dom";
+import { IoCart } from "react-icons/io5";
+import { RxHamburgerMenu } from "react-icons/rx";
+import { useNavigate } from "react-router-dom";
+import { IoMdClose } from "react-icons/io";
 
-export default function NavBar({ menuOpen, setMenuOPen }) {
-  useEffect(() => {
-    document.body.style.overflow = menuOpen ? "hidden" : "";
-  }, [menuOpen]);
+import MyLink from "../components/MyLink";
+import Logo from "../images/Logo.jpg";
+
+export default function NavBar({ menuOpen, setMenuOpen }) {
+  const navigate = useNavigate();
 
   return (
-    <nav className="fixed p-5 top-0 w-full z-40 bg-[rgba(10, 10, 10, 0.8)] backdrop-blur-lg border-b border-white/10 shadow-lg">
+    <nav className="fixed p-2 top-0 w-full z-40 bg-black border-b border-white/10 shadow-lg">
       <div className="flex items-center justify-between p-2.5">
-        <img
-          src={Logo}
-          alt="Logo.pic"
-          className="max-w-12 rounded-full bg-cyan-500 shadow-lg shadow-cyan-500/50"
-        />
+        <img src={Logo} alt="Logo.pic" className="max-w-12 " />
         <div
           className="w-7 h-8 relative cursor-pointer z-40 md:hidden"
-          onClick={() => setMenuOPen((prev) => !prev)}
+          onClick={() => setMenuOpen((prev) => !prev)}
         >
-          &#9776;
+          {menuOpen ? (
+            <IoMdClose className="text-2xl " />
+          ) : (
+            <RxHamburgerMenu className="text-2xl" />
+          )}
         </div>
 
         <div className="hidden md:flex items-center gap-4 text-xl">
-          <Link to="/about" className="text-gray-300 hoveLtext-white ">
-            من نحن
-          </Link>
-          <Link to="/women" className="text-gray-300 hoveLtext-white ">
-            قسم النساء
-          </Link>
-          <Link to="/men" className="text-gray-300 hoveLtext-white ">
-            قسم الرجال
-          </Link>
-          <Link to="/store" className="text-gray-300 hoveLtext-white ">
-            المتجر
-          </Link>
-          <Link to="/" className="text-gray-300 hoveLtext-white ">
-            الصفحة الرئيسية
-          </Link>
+          <MyLink to="/about">من نحن</MyLink>
+          <MyLink to="/store/women">قسم النساء</MyLink>
+          <MyLink to="/store/men">قسم الرجال</MyLink>
+          <MyLink to="/store">المتجر</MyLink>
+          <MyLink to="/">الصفحة الرئيسية</MyLink>
         </div>
         <div className="flex items-center gap-3 text-3xl cursor-pointer">
-          <IoCartOutline className="bg-cyan-500 shadow-lg shadow-cyan-500/50 rounded-full" />
-          <IoPersonOutline className="bg-cyan-500 shadow-lg shadow-cyan-500/50 rounded-full" />
+          <IoCart onClick={() => navigate("/cart")} />
+          <IoPersonOutline onClick={() => navigate("/profile")} />
         </div>
       </div>
     </nav>

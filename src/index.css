@@ -2,7 +2,6 @@
 * {
   box-sizing: border-box;
   font-family: "Space Grotesk", sans-serif;
-  background: black;
   color: #f3f4f6;
 }
 
@@ -10,11 +9,10 @@
   --primary-color: #0078bc;
   --secondary-color: #fff;
 }
-.container{
-    width: 100%;
-    min-height: 100vh;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 15px;
-    padding-right: 15px;
+
+.container {
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: auto;
+  margin-right: auto;
 }
