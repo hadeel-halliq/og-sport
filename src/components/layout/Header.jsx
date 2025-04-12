@@ -4,15 +4,34 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { useNavigate } from "react-router-dom";
 import { IoMdClose } from "react-icons/io";
 
-import MyLink from "../components/MyLink";
-import Logo from "../images/Logo.jpg";
+import Logo from "../../images/Logo.jpg";
+import NavBar from "./NavBar";
+import { useEffect, useState } from "react";
 
-export default function NavBar({ menuOpen, setMenuOpen }) {
+export default function Header({ menuOpen, setMenuOpen }) {
   const navigate = useNavigate();
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <nav className="fixed p-2 top-0 w-full z-40 bg-black border-b border-white/10 shadow-lg">
-      <div className="flex items-center justify-between p-2.5">
+    <div
+      className={`fixed top-0 w-full z-40  transition-all duration-200 text-white ${
+        scrolled ? "bg-black " : "bg-transparent"
+      }`}
+    >
+      <div className="flex items-center justify-between p-1.5 ">
         <img src={Logo} alt="Logo.pic" className="max-w-12 " />
         <div
           className="w-7 h-8 relative cursor-pointer z-40 md:hidden"
@@ -24,19 +43,12 @@ export default function NavBar({ menuOpen, setMenuOpen }) {
             <RxHamburgerMenu className="text-2xl" />
           )}
         </div>
-
-        <div className="hidden md:flex items-center gap-4 text-xl">
-          <MyLink to="/about">من نحن</MyLink>
-          <MyLink to="/store/women">قسم النساء</MyLink>
-          <MyLink to="/store/men">قسم الرجال</MyLink>
-          <MyLink to="/store">المتجر</MyLink>
-          <MyLink to="/">الصفحة الرئيسية</MyLink>
-        </div>
+        <NavBar />
         <div className="flex items-center gap-3 text-3xl cursor-pointer">
           <IoCart onClick={() => navigate("/cart")} />
           <IoPersonOutline onClick={() => navigate("/profile")} />
         </div>
       </div>
-    </nav>
+    </div>
   );
 }

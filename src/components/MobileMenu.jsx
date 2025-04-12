@@ -3,14 +3,14 @@ import MyLink from "./MyLink";
 export default function MobileMenu({ menuOpen, setMenuOpen }) {
   const menuItems = [
     { to: "/", text: " الصفحة الرئيسية" },
-    { to: "/store", text: "المتجر" },
-    { to: "/store/men", text: "قسم الرجال" },
-    { to: "/store/women", text: "قسم النساء" },
+    { to: "/products", text: "المتجر" },
+    { to: "/products/men", text: "قسم الرجال" },
+    { to: "/products/women", text: "قسم النساء" },
     { to: "/about", text: "من نحن" },
   ];
   return (
     <div
-      className={`fixed top-24 md:hidden left-0 w-full z-40 bg-black flex flex-col items-center justify-center
+      className={`fixed top-24 md:hidden left-0 w-full z-60 bg-black flex flex-col items-center justify-center
         transtion duration-300 ease-in-out
         ${
           menuOpen
