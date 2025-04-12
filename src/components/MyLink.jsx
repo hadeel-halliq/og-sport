@@ -5,7 +5,7 @@ export default function MyLink({ to, onClick, children }) {
     <Link
       to={to}
       onClick={onClick}
-      className={`text-lg  text-white my-4 transform transition-transform duration-300`}
+      className={`text-lg text-[var(--main-color)] my-4 transform transition-transform duration-300`}
     >
       {children}
     </Link>
