@@ -1,9 +1,14 @@
-export default function Button({ className, buttonName, buttonType, href, onClick }) {
-  // If buttonType is "socialMedia", render as an anchor tag
+export default function Button({
+  className,
+  buttonName,
+  buttonType,
+  href,
+  onClick,
+}) {
   if (buttonType === "socialMedia") {
     return (
-      <a 
-        className={className} 
+      <a
+        className={className}
         href={href}
         target="_blank"
         rel="noopener noreferrer"
