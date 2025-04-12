@@ -2,8 +2,12 @@ import home from "../../images/home.jpg";
 import bal from "../../images/bal.png";
 import flyshoes from "../../images/flyshoes.png";
 import tshirt from "../../images/tshirt.png";
+import Button from "../../components/common/Button";
+import { useNavigate } from "react-router-dom";
 
 export default function Home() {
+ 
+  const navigate = useNavigate()
   return (
     <>
       <div
@@ -33,6 +37,10 @@ export default function Home() {
               className="fade-slide max-w-96"
               style={{ animationDelay: "6s" }}
             />
+          </div>
+          <div>
+            <h1>لجميع المستلزمات الرياضية</h1>
+            
           </div>
         </div>
       </div>
