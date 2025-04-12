@@ -10,4 +10,4 @@ export default function NavBar() {
       <MyLink to="/">الصفحة الرئيسية</MyLink>
     </div>
   );
-}gi
+}

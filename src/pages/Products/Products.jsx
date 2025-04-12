@@ -4,11 +4,22 @@ import WomenProducts from "../../components/WomenProducts";
 
 export default function Products() {
   const [searchParams] = useSearchParams();
-  const gender = searchParams.get("gender") || "women";
+  const gender = searchParams.get("gender");
   return (
     <div>
-      <h1>{gender === "men" ? "قسم الرجال" : "قسم النساء"}</h1>
-      {gender === "men" ? <MenProducts /> : <WomenProducts />}
+      {!gender ? (
+       <div>ALL</div>
+      ) : gender === "men" ? (
+        <>
+          <h1>قسم الرجال</h1>
+          <MenProducts />
+        </>
+      ) : (
+        <>
+          <h1>قسم النساء</h1>
+          <WomenProducts />
+        </>
+      )}
     </div>
   );
 }
