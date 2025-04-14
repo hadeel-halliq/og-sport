@@ -2,17 +2,16 @@
 * {
   box-sizing: border-box;
   font-family: "Almarai", sans-serif;
-  /* color: #f3f4f6; */
 }
 
 :root {
-  --primary-color: #0078bc;
-  --secondary-color: #fff;
+  --main-color: #fff;
+  --second-color: #0f0f0f;
 }
 
 .container {
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 35px;
+  padding-right: 35px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -21,13 +20,7 @@
   position: absolute;
   opacity: 0;
   animation: fade 9s infinite;
-  /* animation: fade 4s ease-in-out infinite; */
 }
-
-/* @keyframes fade {
-  0%, 33% { opacity: 1; }
-  33.1%, 100% { opacity: 0; }
-} */
 
 @keyframes fade {
   0% { opacity: 0; transform: translatey(20px); }
@@ -35,31 +28,3 @@
   40%, 100% { opacity: 0; transform: translatey(-20px); }
 }
 
-
-/* 
-@keyframes fade {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  20% {
-    opacity: 0;
-    transform: translateY(0);
-  }
-  40% {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  60% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  80% {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-} */

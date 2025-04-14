@@ -4,8 +4,8 @@ export default function MobileMenu({ menuOpen, setMenuOpen }) {
   const menuItems = [
     { to: "/", text: " الصفحة الرئيسية" },
     { to: "/products", text: "المتجر" },
-    { to: "/products/men", text: "قسم الرجال" },
-    { to: "/products/women", text: "قسم النساء" },
+    { to: "/products?gender=male", text: "قسم الرجال" },
+    { to: "/products?gender=famle", text: "قسم النساء" },
     { to: "/about", text: "من نحن" },
   ];
   return (
@@ -24,7 +24,7 @@ export default function MobileMenu({ menuOpen, setMenuOpen }) {
           key={item.to}
           to={item.to}
           onClick={() => setMenuOpen(false)}
-          className={`text-2xl font-semibold text-black my-4 transform transition-transform duration-300
+          className={`text-xl font-semibold text-white my-4 transform transition-transform duration-300
                       ${
                         menuOpen
                           ? "opacity-100 translate-y-0"

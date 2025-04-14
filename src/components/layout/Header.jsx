@@ -27,7 +27,7 @@ export default function Header({ menuOpen, setMenuOpen }) {
 
   return (
     <div
-      className={`fixed top-0 w-full z-40  transition-all duration-200 text-white ${
+      className={`fixed top-0 w-full z-40  transition-all duration-200 text-[var(--main-color)] ${
         scrolled ? "bg-black " : "bg-transparent"
       }`}
     >
